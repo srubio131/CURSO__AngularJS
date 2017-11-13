@@ -1,7 +1,8 @@
 // Identificador y array de módulos para registrarlos en la app (ngResource:consumir api rest)
 var app = angular.module("CursoAngularJS",[]);
 
-app.controller("controller", function ($scope) {
+// Inyección de dependencias $scope, $http, etc
+app.controller("MainCtrl", ["$scope", function ($scope) {
    $scope.comentarios = [
        {
            username: "Pocholo",
@@ -26,4 +27,4 @@ app.controller("controller", function ($scope) {
            $scope.comentario = '';
        }
    };
-});
+}]);
