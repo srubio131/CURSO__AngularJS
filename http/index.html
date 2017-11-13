@@ -7,6 +7,14 @@
     <script src="controller.js"></script>
 </head>
 <body ng-controller="MainCtrl">
+    <label>Title</label>
+    <input type="text" ng-model="newTitle">
+    <br>
+    <label>Body</label>
+    <textarea type="text" ng-model="newBody"></textarea>
+    <br>
+    <button ng-click="addPost(newTitle,newBody)">Agregar Post</button>
+    <h4>Posts</h4>
     <ul>
         <li ng-repeat="post in posts">
             <h4> {{ post.title }} </h4>
