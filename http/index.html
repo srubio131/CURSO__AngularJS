@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="CursoAngularJS">
+<head>
+    <meta charset="UTF-8">
+    <title>Hola Controller</title>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+    <ul>
+        <li ng-repeat="post in posts">
+            <h4> {{ post.title }} </h4>
+            <p> {{ post.body }} </p>
+        </li>
+    </ul>
+</body>
+</html>
