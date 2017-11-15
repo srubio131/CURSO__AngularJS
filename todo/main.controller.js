@@ -26,3 +26,11 @@ app.controller("MainCtrl", ["$scope", "localStorageService", function ($scope, l
     };
 
 }]);
+
+// Filtros
+app.filter("reverse", function() {
+    return function (text, isUpperCase) {
+        var reverseText = text.split("").reverse().join("");
+        return isUpperCase ? reverseText.toUpperCase() : reverseText;
+    }
+});

@@ -10,7 +10,7 @@
 <body ng-controller="MainCtrl">
     <ul>
         <li ng-repeat="tarea in todos">
-            {{ tarea.descripcion }}
+            {{ tarea.descripcion | reverse: false }}
             {{ tarea.fecha | date: 'short' }}
         </li>
     </ul>
