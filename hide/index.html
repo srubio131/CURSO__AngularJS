@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="CursoAngularJS">
+<head>
+    <meta charset="UTF-8">
+    <title>Hide/Show</title>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/lodash/lodash.js"></script>
+    <script src="../node_modules/restangular/dist/restangular.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+    <h4>Posts</h4>
+    <div ng-show="loading">Cargando wey...</div>
+    <div ng-show="posts.length <= 0">No hay posts</div>
+    <ul ng-show="posts.length > 0" class="animated">
+        <li ng-repeat="post in posts">
+            <h4> {{ post.title }} </h4>
+            <p> {{ post.body }} </p>
+        </li>
+    </ul>
+</body>
+</html>
