@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="CursoAngularJS">
+<head>
+    <meta charset="UTF-8">
+    <title>Child</title>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+    <div ng-controller="ChildController">
+        <p><strong>Valor del hijo: </strong>{{ nombre }}</p>
+        <p><strong>Valor del padre: </strong>{{ $parent.nombre }}</p>
+        <p><strong>Valor del abuelo: </strong>{{ $parent.$parent.nombre }}</p>
+        <input type="text" ng-model="$parent.nombre">
+    </div>
+</body>
+</html>
