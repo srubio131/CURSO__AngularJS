@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="CursoAngularJS">
+<head>
+    <meta charset="UTF-8">
+    <title>Directives 2</title>
+    <script type="application/javascript" src="../../node_modules/angular/angular.js"></script>
+    <script type="application/javascript" src="../../node_modules/lodash/lodash.js"></script>
+    <script type="application/javascript" src="../../node_modules/restangular/dist/restangular.js"></script>
+    <script type="application/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script type="application/javascript" src="lib/autocomplete-jquery-ui.js"></script>
+    <script type="application/javascript" src="controller.js"></script>
+    <link rel="stylesheet" href="lib/autocomplete-jquery-ui.structure.css"/>
+    <style>
+        .no-list {
+            list-style-type: none;
+        }
+        body,html {
+            text-align: center;
+            background-color: #eee;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body ng-controller="MainCtrl">
+    <input type="text" my-autocomplete="repos" placeholder="Buscar repositorio">
+    <ul class="no-list">
+        <div back-img="{{ img }}"></div>
+        <li ng-repeat="repo in repos"  ng-hide="main_repo && main_repo != repo.name">
+            <h3>{{ repo }}</h3>
+        </li>
+    </ul>
+</body>
+</html>
