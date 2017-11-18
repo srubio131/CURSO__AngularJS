@@ -2,52 +2,52 @@ var app = angular.module("TodoList",["LocalStorageModule"]);
 
 // Factories
 app.factory("ToDoService", ["localStorageService", function(localStorageService){
-    var toDoService = {};
 
-    toDoService.key = "angular-todolist";
-    // Recuperar lista todos del storage
-    if (localStorageService.get(toDoService.key)) {
-        toDoService.tareas = localStorageService.get(toDoService.key);
-    } else {
-        toDoService.tareas = [];
-    }
+    return (function(){
 
-    // Funciones
-    toDoService.clean = function() {
-        toDoService.tareas = [];
-        toDoService.updateLocalStorage();
-        return toDoService.getAll();
-    };
+        // Private atributes
+        var key = "angular-todolist";
+        // Recuperar lista todos del storage
+        var tareas = [];
+        if (localStorageService.get(key)) {
+            tareas = localStorageService.get(key);
+        }
 
-    toDoService.addTarea = function(nuevaTarea) {
-        toDoService.tareas.push(nuevaTarea);
-        toDoService.updateLocalStorage();
-        return toDoService.getAll();
-    };
+        // Private methods
+        var updateLocalStorage = function() {
+            localStorageService.set(key, tareas);
+        };
 
-    toDoService.updateLocalStorage = function() {
-        localStorageService.set(toDoService.key, toDoService.tareas);
-    };
-
-    toDoService.getAll = function () {
-        return toDoService.tareas;
-    };
-
-    toDoService.removeItem = function (item) {
-        toDoService.tareas = toDoService.tareas.filter(function(tarea){
-            return tarea !== item;
-        });
-        toDoService.updateLocalStorage();
-        return toDoService.getAll();
-    };
-
-    return toDoService;
+        // Public methods
+        return {
+            clean: function() {
+                tareas = [];
+                updateLocalStorage();
+                return tareas;
+            },
+            addTarea: function(nuevaTarea) {
+                tareas.push(nuevaTarea);
+                updateLocalStorage();
+                return tareas;
+            },
+            removeItem: function (item) {
+                tareas = tareas.filter(function(tarea){
+                    return tarea !== item;
+                });
+                updateLocalStorage();
+                return tareas;
+            },
+            getTareas: function () {
+                return tareas;
+            }
+        };
+    })();
 }]);
 
 // Controladores
 app.controller("MainCtrl", ["$scope","ToDoService", function ($scope,ToDoService) {
 
-    $scope.todos = ToDoService.getAll();
+    $scope.todos = ToDoService.getTareas();
     
     $scope.addTarea = function (nuevaTarea) {
         $scope.todos = ToDoService.addTarea(nuevaTarea);
