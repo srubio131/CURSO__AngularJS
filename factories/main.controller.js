@@ -1,7 +1,7 @@
 var app = angular.module("TodoList",["LocalStorageModule"]);
 
 // Factories
-app.factory("ToDoService", ["localStorageService", function(localStorageService){
+app.factory("ToDoFactory", ["localStorageService", function(localStorageService){
 
     return (function(){
 
@@ -45,21 +45,21 @@ app.factory("ToDoService", ["localStorageService", function(localStorageService)
 }]);
 
 // Controladores
-app.controller("MainCtrl", ["$scope","ToDoService", function ($scope,ToDoService) {
+app.controller("MainCtrl", ["$scope","ToDoFactory", function ($scope,ToDoFactory) {
 
-    $scope.todos = ToDoService.getTareas();
+    $scope.todos = ToDoFactory.getTareas();
     
     $scope.addTarea = function (nuevaTarea) {
-        $scope.todos = ToDoService.addTarea(nuevaTarea);
+        $scope.todos = ToDoFactory.addTarea(nuevaTarea);
         $scope.nuevaTarea = {};
     };
 
     $scope.clean = function () {
-        $scope.todos = ToDoService.clean();
+        $scope.todos = ToDoFactory.clean();
     };
 
     $scope.removeItem = function (item) {
-        $scope.todos = ToDoService.removeItem(item);
+        $scope.todos = ToDoFactory.removeItem(item);
     };
 
 }]);
