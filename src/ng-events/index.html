@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html ng-app="CursoAngularJS">
+<html ng-app>
 <head>
     <meta charset="UTF-8">
     <title>Ng-events</title>
-    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../../node_modules/angular/angular.js"></script>
     <style>
         .hover{
             background-color: chartreuse;
@@ -13,7 +13,7 @@
         }
     </style>
 </head>
-<body ng-controller="MainCtrl">
+<body>
     <button ng-class="{'hover': flag, 'no-hover': !flag}" ng-click="flag = !flag" ng-mouseover="flag = true" ng-mouseleave="flag = false">
         Hover me
     </button>
