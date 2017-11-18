@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="CursoAngularJS">
+<head>
+    <meta charset="UTF-8">
+    <title>Ng-src / Ng-cloack</title>
+    <script type="application/javascript" src="../../node_modules/angular/angular.js"></script>
+    <script type="application/javascript" src="../../node_modules/lodash/lodash.js"></script>
+    <script type="application/javascript" src="../../node_modules/restangular/dist/restangular.js"></script>
+    <script type="application/javascript" src="controller.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+    <ul>
+        <div back-img="{{ repos[0].owner.avatar_url }}"></div>
+        <li ng-repeat="repo in repos"  ng-cloak>
+            <h3>{{ repo.name }}</h3>
+        </li>
+    </ul>
+</body>
+</html>
