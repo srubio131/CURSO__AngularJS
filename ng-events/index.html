@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="CursoAngularJS">
+<head>
+    <meta charset="UTF-8">
+    <title>Ng-events</title>
+    <script src="../node_modules/angular/angular.js"></script>
+    <style>
+        .hover{
+            background-color: chartreuse;
+        }
+        .no-hover{
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body ng-controller="MainCtrl">
+    <button ng-class="{'hover': flag, 'no-hover': !flag}" ng-click="flag = !flag" ng-mouseover="flag = true" ng-mouseleave="flag = false">
+        Hover me
+    </button>
+    <span ng-show="flag">&lt;- click me</span>
+    <p>
+        {{ flag | json }}
+    </p>
+</body>
+</html>
