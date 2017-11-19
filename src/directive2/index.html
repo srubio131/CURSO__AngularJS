@@ -2,14 +2,15 @@
 <html ng-app="CursoAngularJS">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <title>Directives 2</title>
     <script type="application/javascript" src="../../node_modules/angular/angular.js"></script>
     <script type="application/javascript" src="../../node_modules/lodash/lodash.js"></script>
     <script type="application/javascript" src="../../node_modules/restangular/dist/restangular.js"></script>
-    <script type="application/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
-    <script type="application/javascript" src="lib/autocomplete-jquery-ui.js"></script>
     <script type="application/javascript" src="controller.js"></script>
-    <link rel="stylesheet" href="lib/autocomplete-jquery-ui.structure.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <style>
         .no-list {
             list-style-type: none;
@@ -25,7 +26,7 @@
     <input type="text" my-autocomplete="repos" placeholder="Buscar repositorio">
     <ul class="no-list">
         <div back-img="{{ img }}"></div>
-        <li ng-repeat="repo in repos"  ng-hide="main_repo && main_repo != repo.name">
+        <li ng-repeat="repo in repos"  ng-hide="main_repo && main_repo != repo">
             <h3>{{ repo }}</h3>
         </li>
     </ul>

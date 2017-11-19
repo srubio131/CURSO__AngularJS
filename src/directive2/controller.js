@@ -19,7 +19,7 @@ app.directive("myAutocomplete", function () {
     // attrs: atributos del elemento donde se puso la directiva
     function link (scope,element,attrs) {
         $(element).autocomplete({
-           source: scope[attrs.myAutocomplete],
+            source: scope[attrs.myAutocomplete],
             select: function (ev,ui) {
                 ev.preventDefault();
                 if(ui.item) {
