@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <input type="text" my-autocomplete="repos" placeholder="Buscar repositorio">
+    <ul class="no-list">
+        <div back-img="{{ img }}"></div>
+        <li ng-repeat="repo in repos"  ng-hide="main_repo && main_repo != repo">
+            <a href="#/repo/{{ repo }}">
+                <h3>{{ repo }}</h3>
+            </a>
+        </li>
+    </ul>
+</body>
+</html>
